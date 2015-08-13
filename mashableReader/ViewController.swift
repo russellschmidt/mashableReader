@@ -8,9 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
 
   var mashableStories = [MashableArticle]()
+
+  @IBOutlet var myTableView: UITableView!
+
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -49,21 +52,20 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
           self.mashableStories.append(mashableArticle)
         }
       }
-      // test that anything is in our array
-      println("inside function")
-      for i in 0..<self.mashableStories.count {
-        println(self.mashableStories[i].title!)
-      }
-
+      dispatch_async(dispatch_get_main_queue(), { () -> Void in
+        self.myTableView.reloadData()
+      })
+      
     })
     task.resume()
 
-    // test that anything is in our array
-    println("outside task.resume()")
-    for i in 0..<self.mashableStories.count {
-      println(self.mashableStories[i].title!)
-    }
 
+  }
+
+  // need this to reload the data after we dismiss ArticleViewController
+  override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
+    self.myTableView.reloadData()
   }
 
   override func didReceiveMemoryWarning() {
@@ -104,12 +106,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     var cell = tableView.dequeueReusableCellWithIdentifier("mashableTableCell", forIndexPath: indexPath) as! UITableViewCell
     cell.textLabel?.text = mashableStories[indexPath.row].title!
-    // cell.detailTextLabel?.text = mashableStories[indexPath.row].blurb
+    cell.detailTextLabel?.text = mashableStories[indexPath.row].blurb
     return cell
   }
 
   func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-    // code
+    let data = mashableStories[indexPath.row]
+    self.performSegueWithIdentifier("articleSegue", sender: data)
+  }
+
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if segue.identifier == "articleSegue" {
+      if let selectedRowIndex = myTableView.indexPathForSelectedRow() {
+        // instantiate the ViewController
+        let articleVC = segue.destinationViewController as! ArticleViewController
+        // set the destination viewcontroller object to the info we are passing
+        articleVC.articleDetail = mashableStories[selectedRowIndex.row]
+      }
+    }
   }
 
 }

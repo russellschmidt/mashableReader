@@ -14,6 +14,7 @@
 		166704B81B7BF7A500D0AFCF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 166704B61B7BF7A500D0AFCF /* LaunchScreen.xib */; };
 		166704C41B7BF7A500D0AFCF /* mashableReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166704C31B7BF7A500D0AFCF /* mashableReaderTests.swift */; };
 		166704CE1B7C048900D0AFCF /* Mashable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166704CD1B7C048900D0AFCF /* Mashable.swift */; };
+		166D67A71B7D1CC30018FAC9 /* ArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 166D67A61B7D1CC30018FAC9 /* ArticleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		166704C21B7BF7A500D0AFCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		166704C31B7BF7A500D0AFCF /* mashableReaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mashableReaderTests.swift; sourceTree = "<group>"; };
 		166704CD1B7C048900D0AFCF /* Mashable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mashable.swift; sourceTree = "<group>"; };
+		166D67A61B7D1CC30018FAC9 /* ArticleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArticleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				166704AF1B7BF7A500D0AFCF /* ViewController.swift */,
 				166704CD1B7C048900D0AFCF /* Mashable.swift */,
 				166704B11B7BF7A500D0AFCF /* Main.storyboard */,
+				166D67A61B7D1CC30018FAC9 /* ArticleViewController.swift */,
 				166704B41B7BF7A500D0AFCF /* Images.xcassets */,
 				166704B61B7BF7A500D0AFCF /* LaunchScreen.xib */,
 				166704AB1B7BF7A500D0AFCF /* Supporting Files */,
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				166704CE1B7C048900D0AFCF /* Mashable.swift in Sources */,
+				166D67A71B7D1CC30018FAC9 /* ArticleViewController.swift in Sources */,
 				166704B01B7BF7A500D0AFCF /* ViewController.swift in Sources */,
 				166704AE1B7BF7A500D0AFCF /* AppDelegate.swift in Sources */,
 			);
@@ -415,6 +419,7 @@
 				166704C91B7BF7A500D0AFCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		166704CA1B7BF7A500D0AFCF /* Build configuration list for PBXNativeTarget "mashableReaderTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +428,7 @@
 				166704CC1B7BF7A500D0AFCF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

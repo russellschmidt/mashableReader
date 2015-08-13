@@ -12,13 +12,17 @@ import Foundation
 class MashableArticle {
 
   var title: String?
-  //var blurb: String?
-  //var story: String?
+  var blurb: String?
+  var content: NSDictionary?
+  var articleText: String?
+
 
   init(jsonObjectDictionary: NSDictionary) {
     self.title = jsonObjectDictionary["title"] as? String
-    //self.blurb = jsonObjectDictionary["excerpt"] as? String
-    //self.story = jsonObjectDictionary["plain"] as? String
+    self.blurb = jsonObjectDictionary["excerpt"] as? String
+
+    self.content = jsonObjectDictionary["content"] as? NSDictionary
+    //self.articleText = content["plain"] as? String
     // note that "plain" is a dictionary entry in dictionary Story
   }
 }
